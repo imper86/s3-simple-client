@@ -1,0 +1,22 @@
+{
+    "name": "imper86/s3-simple-client",
+    "description": "Simple AWS S3 client",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Adrian Szuszkiewicz",
+            "email": "me@imper.info"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "ext-fileinfo": "*",
+        "aws/aws-sdk-php": "^3.67"
+    },
+    "autoload": {
+        "psr-4": {
+            "Imper86\\S3SimpleClient\\": "src/Imper86/S3SimpleClient/"
+        }
+    }
+}
