@@ -25,12 +25,17 @@ class S3Client implements S3ClientInterface
      * @var array
      */
     private $config;
+    /**
+     * @var \finfo
+     */
+    private $finfo;
 
     public function __construct(array $config)
     {
         $this->config = $config;
         $this->client = new \Aws\S3\S3Client($config);
         $this->uriParser = new S3UriParser();
+        $this->finfo = new \finfo(FILEINFO_MIME_TYPE);
     }
 
     public function getDirectUrl(string $bucket, string $key): string
@@ -55,7 +60,13 @@ class S3Client implements S3ClientInterface
 
     public function upload(string $bucket, string $key, string $body, bool $public = false): void
     {
-        $this->client->upload($bucket, $key, $body, $public ? 'public' : 'private');
+        $this->client->putObject([
+            'Bucket' => $bucket,
+            'Key' => $key,
+            'Body' => $body,
+            'ContentType' => $this->finfo->buffer($body),
+            'ACL' => $public ? 'public-read' : 'private',
+        ]);
     }
 
     public function uploadMultipart(string $bucket, string $key, string $filePath): void
