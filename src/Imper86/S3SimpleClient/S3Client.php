@@ -38,6 +38,11 @@ class S3Client implements S3ClientInterface
         $this->finfo = new \finfo(FILEINFO_MIME_TYPE);
     }
 
+    public function getBaseClient(): \Aws\S3\S3ClientInterface
+    {
+        return $this->client;
+    }
+
     public function getDirectUrl(string $bucket, string $key): string
     {
         return $this->client->getObjectUrl($bucket, $key);

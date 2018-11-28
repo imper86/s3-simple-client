@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ad4cd9ed587af3515e4342bb5dcb95de",
+    "content-hash": "4a940d149dd915ce773bc90f4b72ea2e",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.67.17",
+            "version": "3.77.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "b937c2193a4f509de5cd5836fa2a37904fc8e465"
+                "reference": "a29f5d77910d04fe9045abc89d9f0411977c44d3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/b937c2193a4f509de5cd5836fa2a37904fc8e465",
-                "reference": "b937c2193a4f509de5cd5836fa2a37904fc8e465",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a29f5d77910d04fe9045abc89d9f0411977c44d3",
+                "reference": "a29f5d77910d04fe9045abc89d9f0411977c44d3",
                 "shasum": ""
             },
             "require": {
@@ -25,7 +25,7 @@
                 "ext-pcre": "*",
                 "ext-simplexml": "*",
                 "ext-spl": "*",
-                "guzzlehttp/guzzle": "^5.3.1|^6.2.1",
+                "guzzlehttp/guzzle": "^5.3.3|^6.2.1",
                 "guzzlehttp/promises": "~1.0",
                 "guzzlehttp/psr7": "^1.4.1",
                 "mtdowling/jmespath.php": "~2.2",
@@ -38,6 +38,8 @@
                 "doctrine/cache": "~1.4",
                 "ext-dom": "*",
                 "ext-openssl": "*",
+                "ext-pcntl": "*",
+                "ext-sockets": "*",
                 "nette/neon": "^2.3",
                 "phpunit/phpunit": "^4.8.35|^5.4.3",
                 "psr/cache": "^1.0"
@@ -46,7 +48,8 @@
                 "aws/aws-php-sns-message-validator": "To validate incoming SNS notifications",
                 "doctrine/cache": "To use the DoctrineCacheAdapter",
                 "ext-curl": "To send requests using cURL",
-                "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages"
+                "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages",
+                "ext-sockets": "To use client-side monitoring"
             },
             "type": "library",
             "extra": {
@@ -84,7 +87,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-09-21T20:29:41+00:00"
+            "time": "2018-11-28T00:16:37+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -379,6 +382,8 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-fileinfo": "*"
+    },
     "platform-dev": []
 }

@@ -10,6 +10,8 @@ namespace Imper86\S3SimpleClient;
 
 interface S3ClientInterface
 {
+    public function getBaseClient(): \Aws\S3\S3ClientInterface;
+
     public function getDirectUrl(string $bucket, string $key): string;
 
     public function getPresignedUrl(string $buket, string $key, ?\DateInterval $expireInterval = null): string;
